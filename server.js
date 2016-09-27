@@ -22,8 +22,8 @@ app.set('view engine', 'handlebars');
 // =================================================================
 // Configure app
 // =================================================================
-// var favicon = require('serve-favicon');
-// app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')));
+var favicon = require('serve-favicon');
+app.use(favicon(path.join(__dirname, 'public/assets/img', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(bodyParser.json());

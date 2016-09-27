@@ -4,7 +4,7 @@
 // Dependency declarations
 // =================================================================
 var app = require('../server');
-var debug = require('debug')('burger:server');
+var debug = require('debug')('hw-eat-da-burger:server');
 var http = require('http');
 
 // =================================================================

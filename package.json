@@ -1,5 +1,5 @@
 {
-  "name": "eat-da-burger",
+  "name": "hw-eat-da-burger",
   "version": "1.0.0",
   "description": "Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.",
   "main": "server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ronnytomasetti/eat-da-burger.git"
+    "url": "git+https://github.com/ronnytomasetti/hw-eat-da-burger.git"
   },
   "keywords": [
     "burgers"
@@ -17,9 +17,9 @@
   "author": "Ronny Tomasetti",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ronnytomasetti/eat-da-burger/issues"
+    "url": "https://github.com/ronnytomasetti/hw-eat-da-burger/issues"
   },
-  "homepage": "https://github.com/ronnytomasetti/eat-da-burger#readme",
+  "homepage": "https://github.com/ronnytomasetti/hw-eat-da-burger#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
