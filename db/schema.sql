@@ -1,6 +1,6 @@
-CREATE SCHEMA `burgers_db` ;
+CREATE SCHEMA `burgers_db`;
 
-USE `burgers_db` ;
+USE `burgers_db`;
 
 CREATE TABLE `burgers_db`.`burgers` (
   `burger_id` INT NOT NULL AUTO_INCREMENT,
