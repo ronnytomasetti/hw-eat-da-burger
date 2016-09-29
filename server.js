@@ -1,12 +1,9 @@
 // =================================================================
-// Dependency declarations
+// Dependencies
 // =================================================================
 var express = require('express');
 var path = require('path');
-var exphbs = require('express-handlebars');
-var bodyParser = require('body-parser');
-var logger = require('morgan');
-var controller = require('./controllers/burgers_controllers');
+var methodOverride = require('method-override');
 
 // =================================================================
 // Initialize new Express app
@@ -16,19 +13,36 @@ var app = express();
 // =================================================================
 // View engine setup
 // =================================================================
+var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // =================================================================
-// Configure app
+// Configure page favicon and public web folder
 // =================================================================
 var favicon = require('serve-favicon');
 app.use(favicon(path.join(__dirname, 'public/assets/img', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(logger('dev'));
+
+// =================================================================
+// Configure body-parser middleware
+// =================================================================
+var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// =================================================================
+// Setup console logger
+// =================================================================
+var logger = require('morgan');
+app.use(logger('dev'));
+
+// =================================================================
+// Configure application routes
+// =================================================================
+app.use(methodOverride('_method'));
+
+var controller = require('./controllers/burgers_controllers');
 app.use('/', controller);
 
 // Catch 404 errors, forward to error handlers below.

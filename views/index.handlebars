@@ -1,1 +1,61 @@
-<h1>Home Page index.handlebars</h1>
+<div class="container">
+
+	<div class="row">
+		<img id="burger-header-img" class="img-responsive center-block" src="assets/img/burger.png"/>
+		<h1 class="text-center">Eat-Da-Burger!</h1>
+	</div>
+
+	<div class="row text-center">
+		<form method="POST" action="/burgers" class="form-inline">
+			<div class="form-group">
+				<label class="sr-only" for="burger-input">Delicious burger</label>
+				<input name="burger" type="text" class="form-control" id="burger-input" placeholder="Enter a delicious burger">
+			</div>
+			<button type="submit" class="btn btn-default">SUBMIT</button>
+		</form>
+	</div>
+
+	<div class="row text-center">
+		<div class="col-xs-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">DELICIOUS BURGERS</div>
+				<div id="burgers-added" class="panel-body">
+
+					<form method="POST" action="/burgers/update?_method=PUT" class="form-inline">
+						<hr>
+						{{#each burgers}}
+							{{#unless devoured}}
+									<div class="form-group">
+										<label class="sr-only">delicious-burger</label>
+										<p class="form-control-static">{{ burger_name }}</p>
+									</div>
+									<button id="burger-id{{burger_id}}" type="submit" class="btn btn-default">DEVOUR!!</button>
+									<hr>
+							{{/unless}}
+						{{/each}}
+					</form>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">DEVOURED BURGERS</div>
+				<div id="burgers-devoured" class="panel-body">
+
+					<form class="form-inline">
+						<hr>
+						{{#each burgers}}
+							{{#if devoured}}
+									<p>{{ burger_name }}</p>
+									<hr>
+							{{/if}}
+						{{/each}}
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

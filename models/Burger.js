@@ -1,7 +1,18 @@
 var orm = require('../config/orm');
 
-function Burger() {
-	// Create code that will call the ORM functions using burger specific inputs.
-}
+var burger = {
 
-module.exports = Burger;
+	listAllBurgers: function(cb) {
+		orm.selectAll(cb);
+	},
+
+	saveBurger: function(burgerData) {
+
+	},
+
+	devourBurger: function(burgerData) {
+
+	}
+};
+
+module.exports = burger;
