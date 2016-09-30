@@ -8,6 +8,10 @@
 
 var mysql = require('../node_modules/mysql');
 
+/**
+ * If JAWSDB_URL is available (Heroku), use it.
+ * Otherwise use local mysql configuration.
+ */
 if (process.env.JAWSDB_URL)
 	connection = mysql.createConnection(process.env.JAWSDB_URL);
 else {
