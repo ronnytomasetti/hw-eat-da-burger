@@ -1,47 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
-	<head>
-		<meta charset="utf-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-		<meta name="author" content="Ronny Tomasetti"/>
-		<meta name="description" content="Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat."/>
-		<meta name="keywords" content="eat da burger"/>
+	{{> head}}
 
-		<title>Eat-Da-Burger!</title>
-
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
-		<link rel="stylesheet" href="assets/css/style.css"/>
-	</head>
 	<body>
 
-		<nav class="navbar navbar-fixed-top">
-	        <div class="container">
-	            <div class="navbar-header">
-	                <a class="navbar-brand" href="/">EAT DA BURGER</a>
-	            </div>
-	        </div>
-	    </nav>
+		{{> nav}}
 
 	    {{{ body }}}
 
-		<!-- Footer -->
-		<footer class="footer">
-			<div class="container">
-				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-					<p class="text-muted text-left">UCF Coding Bootcamp 2016</p>
-				</div>
-				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-					<p class="text-muted text-center">Made with <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color:red;"></span> by Ronny Tomasetti</p>
-				</div>
-				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-					<p class="text-muted text-right">Copyright &copy 2016. All rights reserved.</p>
-				</div>
-			</div>
-		</footer>
-
+		{{> footer}}
+		
 		<!-- ======================================================== -->
 	    <!-- CDN jQuery JS -->
 	    <script src="https://code.jquery.com/jquery-3.1.0.min.js"

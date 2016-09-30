@@ -3,69 +3,83 @@
  * UCF Coding Bootcamp 2016
  * Week 14 - Node Express Handlebars
  *
- * Applications burger object-relational mapping file.
+ * Applications object-relational mapping file.
  */
 
 var connection = require("./connection");
 
+function printQuestionMarks(num) {
+	var arr = [];
+
+	for (var i = 0; i < num; i++) {
+		arr.push('?');
+	}
+
+	return arr.toString();
+}
+
+function objToSql(ob) {
+	var arr = [];
+
+	for (var key in ob) {
+		if (ob.hasOwnProperty(key))
+			arr.push(key + '=' + ob[key]);
+	}
+
+	return arr.toString();
+}
+
 var orm = {
 
-	/**
-	 * Selects all rows from burgers table.
-	 *
-	 * @return {function} cb Executes given callback function with results.
-	 */
-	selectAll: function(cb) {
-		connection.query('SELECT * FROM burgers', function(err, results) {
-				if (err)
-					throw err;
-				cb(results);
-			}
-		);
-	},
-
-	/**
-	 * [insertOne description]
-	 *
-	 * @param  {[type]} obj [description]
-	 * @return {[type]}     [description]
-	 */
-	insertOne: function(burgerName) {
-		connection.query('INSERT INTO burgers VALUES ?', burgerName, function(err, result) {
-			if (err)
-		  		throw err;
-
+	all: function (tableInput, cb) {
+		var queryString = 'SELECT * FROM ' + tableInput + ';';
+		connection.query(queryString, function (err, result) {
+			if (err) throw err;
+			cb(result);
 		});
 	},
 
-	/**
-	 * [updateOne description]
-	 *
-	 * @param  {[type]} obj [description]
-	 * @return {[type]}     [description]
-	 */
-	updateOne: function(obj) {
-		// connection.query('UPDATE movies SET movie = ? WHERE id = ?', [req.body.movie, req.body.id], function(err, result) {
-		//   if (err) throw err;
-			// REDIRECT AFTER EXECUTING
-		// });
+	create: function (table, cols, vals, cb) {
+		var queryString = 'INSERT INTO ' + table;
+
+		queryString += ' (';
+		queryString += cols.toString();
+		queryString += ') ';
+		queryString += 'VALUES (';
+		queryString += printQuestionMarks(vals.length);
+		queryString += ') ';
+
+		connection.query(queryString, vals, function (err, result) {
+			if (err) throw err;
+			cb(result);
+		});
 	},
 
-	/**
-	 * Ends the connection to MySQL database.
-	 *
-	 * @return {}
-	 */
-	endConnection: function() {
-		connection.end();
+	update: function (table, objColVals, condition, cb) {
+		var queryString = 'UPDATE ' + table;
+
+		queryString += ' SET ';
+		queryString += objToSql(objColVals);
+		queryString += ' WHERE ';
+		queryString += condition;
+
+		connection.query(queryString, function (err, result) {
+			if (err) throw err;
+			cb(result);
+		});
+	},
+
+	delete: function (table, condition, cb) {
+		var queryString = 'DELETE FROM ' + table;
+
+		queryString += ' WHERE ';
+		queryString += condition;
+
+		connection.query(queryString, function (err, result) {
+			if (err) throw err;
+			cb(result);
+		});
 	}
 };
 
 module.exports = orm;
-
-/* =====================================================
-connection.query('DELETE FROM movies WHERE id = ?', [req.body.id], function(err, result) {
-  if (err) throw err;
-  // REDIRECT AFTER EXECUTING
-});
-===================================================== */
