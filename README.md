@@ -10,7 +10,7 @@ Eat-Da-Burger! is a restaurant app that lets users input the names of burgers th
   - To do this within mysql shell, use the command `source /FULL_PATH_HERE/schema.sql`
 - Rename `EXAMPLE__keys.js` to `keys.js`.
 - Inside `keys.js` file, provide values for your local mysql connection where the schema.sql and seeds.sql files were sourced.
-- Run with either `DEBUG=hw-eat-da-burger:* npm start` or simply `npm start`.
+- Run with either `npm run debug` or simply `npm start`.
 - Enjoy eating burgers <3
 
 ----------
